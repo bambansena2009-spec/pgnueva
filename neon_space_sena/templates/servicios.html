@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Servicios | Neon Space{% endblock %}
+{% block content %}
+<main class="container section">
+    <div class="section-title"><small>CATÁLOGO</small><h2>Todos los servicios</h2></div>
+    <div class="grid">
+    {% for service in services %}
+        <article class="card">
+            <div class="icon">✦</div>
+            <h3>{{ service.name }}</h3>
+            <p>{{ service.description }}</p>
+            <div class="price">${{ "{:,.0f}".format(service.price|float) }}</div>
+            <small>{{ service.category }}</small>
+        </article>
+    {% endfor %}
+    </div>
+</main>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Iniciar sesión | Neon Space{% endblock %}
+{% block content %}
+<main class="container auth-wrap">
+<div class="form-card">
+    <h2>Bienvenido de nuevo</h2><p>Accede al panel de administración.</p>
+    <form method="post">
+        <label>Correo electrónico</label>
+        <input type="email" name="email" required>
+        <label>Contraseña</label>
+        <input type="password" name="password" required>
+        <br><br><button class="btn btn-primary" type="submit">Entrar</button>
+    </form>
+    <p style="margin-top:20px">¿No tienes cuenta? <a class="accent" href="{{ url_for('registro') }}">Regístrate</a></p>
+</div>
+</main>
+{% endblock %}

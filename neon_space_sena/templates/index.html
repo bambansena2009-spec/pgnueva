@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Neon Space | Inicio{% endblock %}
+{% block content %}
+<main class="container">
+<section class="hero">
+    <div>
+        <span class="badge">SISTEMA DE INFORMACIÓN · 2026</span>
+        <h1>CREA.<br><span>INNOVA.</span><br>IMPACTA.</h1>
+        <p class="lead">Plataforma web para administrar servicios digitales, usuarios y registros desde cualquier dispositivo conectado a Internet.</p>
+        <div class="actions">
+            <a class="btn btn-primary" href="{{ url_for('servicios') }}">Explorar servicios</a>
+            <a class="btn btn-ghost" href="{{ url_for('registro') }}">Crear cuenta</a>
+        </div>
+    </div>
+    <div class="orb">
+        <div class="orb-content"><small>PROYECTO WEB</small><h2>NEON<br>VISION</h2><small>FLASK · SQL · JS</small></div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="section-title"><small>PROPUESTA</small><h2>Una experiencia digital diferente.</h2></div>
+    <div class="grid">
+        <article class="card"><div class="icon">⚡</div><h3>Rápido</h3><p>Arquitectura sencilla y preparada para desplegarse en un servicio de hosting.</p></article>
+        <article class="card"><div class="icon">🗄️</div><h3>Base de datos</h3><p>Usuarios y servicios almacenados mediante SQLAlchemy, con soporte para PostgreSQL.</p></article>
+        <article class="card"><div class="icon">📱</div><h3>Responsive</h3><p>Interfaz adaptable para computadores, tablets y teléfonos celulares.</p></article>
+    </div>
+</section>
+
+<section class="section">
+    <div class="section-title"><small>SERVICIOS DESTACADOS</small><h2>Lo que ofrecemos</h2></div>
+    <div class="grid">
+    {% for service in services %}
+        <article class="card">
+            <div class="icon">🚀</div>
+            <h3>{{ service.name }}</h3>
+            <p>{{ service.description }}</p>
+            <div class="price">${{ "{:,.0f}".format(service.price|float) }}</div>
+        </article>
+    {% else %}
+        <article class="card"><h3>Aún no hay servicios</h3><p>Ingresa al panel administrativo para crear el primer registro.</p></article>
+    {% endfor %}
+    </div>
+</section>
+</main>
+{% endblock %}

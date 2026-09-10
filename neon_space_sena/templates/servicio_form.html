@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}{{ title }} | Neon Space{% endblock %}
+{% block content %}
+<main class="container auth-wrap">
+<div class="form-card">
+    <h2>{{ title }}</h2>
+    <form method="post">
+        <label>Nombre</label>
+        <input name="name" required maxlength="120" value="{{ service.name if service else '' }}">
+        <label>Descripción</label>
+        <textarea name="description" rows="5" required>{{ service.description if service else '' }}</textarea>
+        <label>Precio</label>
+        <input type="number" name="price" min="0" step="0.01" required value="{{ service.price if service else '' }}">
+        <label>Categoría</label>
+        <input name="category" required maxlength="80" value="{{ service.category if service else '' }}">
+        <br><br><button class="btn btn-primary" type="submit">Guardar</button>
+        <a class="btn btn-ghost" href="{{ url_for('panel') }}">Cancelar</a>
+    </form>
+</div>
+</main>
+{% endblock %}

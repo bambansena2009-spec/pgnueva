@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Registro | Neon Space{% endblock %}
+{% block content %}
+<main class="container auth-wrap">
+<div class="form-card">
+    <h2>Crear cuenta</h2><p>Registra un usuario para administrar el sistema.</p>
+    <form method="post">
+        <label>Nombre</label>
+        <input name="name" required maxlength="100">
+        <label>Correo electrónico</label>
+        <input type="email" name="email" required maxlength="150">
+        <label>Contraseña</label>
+        <input type="password" name="password" minlength="6" required>
+        <br><br><button class="btn btn-primary" type="submit">Registrarme</button>
+    </form>
+</div>
+</main>
+{% endblock %}

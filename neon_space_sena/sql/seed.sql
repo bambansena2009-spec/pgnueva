@@ -1,0 +1,3 @@
+-- Usuario de demostración:
+-- Para seguridad, el sistema crea usuarios desde /registro.
+-- No se incluye una contraseña real en el SQL.
